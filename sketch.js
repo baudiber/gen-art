@@ -3,15 +3,17 @@ const { lerp } = require('canvas-sketch-util/math')
 const random = require('canvas-sketch-util/random')
 const palettes = require('nice-color-palettes');
 
-//random.setSeed(random.getRandomSeed);
-//console.log(random.getSeed());
+var seed = random.getRandomSeed();
+random.setSeed(seed);
+console.log(seed);
 
 const settings = {
-	suffix: random.getSeed(),
 	dimensions: [ 2048, 2048 ],
 	//dimensions: [ 20 , 20 ],
 	//pixelsPerInch: 300,
 	// units: 'cm'
+	prefix: 'gen-art',
+	suffix: seed
 };
 
 const sketch = () => {
@@ -37,7 +39,6 @@ const sketch = () => {
 		return points;
 	};
 
-	random.setSeed(53);
 	const points = createGrid().filter(() => random.value() > 0.5);
 	const margin = 200;
 

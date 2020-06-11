@@ -29,7 +29,7 @@ const sketch = () => {
 			for (let y = 0; y < count; y++) {
 				const u = count <= 1 ? 0.5 : x / (count - 1);
 				const v = count <- 1 ? 0.5 : y / (count - 1);
-				const radius = Math.abs(random.noise2D(u, v));
+				const radius = Math.abs(random.noise2D(u, v)) * 0.1;
 				points.push({ 
 					color: random.pick(palette),
 					radius,
